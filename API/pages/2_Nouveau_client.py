@@ -32,11 +32,10 @@ file_path = "C:\\Users\\steph\\Documents\\Formation\\Projet8\\"
 def load_all():
     model = mlflow.lightgbm.load_model(model_path)
     df_brut = pd.read_csv(file_path + "Dataframe_brut.csv")
-    df_norm = pd.read_csv(file_path + "Dataframe_normalized.csv")
     scaler = joblib.load(file_path + "scaler.pkl")
-    return model, df_brut, df_norm, scaler
+    return model, df_brut, scaler
 
-model, df_brut, df_norm, scaler = load_all()
+model, df_brut, scaler = load_all()
 
 if "form_submitted" not in st.session_state:
     st.session_state.form_submitted = False
@@ -71,7 +70,6 @@ def plot_gauge(probability, cutoff):
 # Création d’un formulaire pour saisir les données du nouveau client
 st.subheader("Renseignez les données du nouveau client")
 client_data = df_brut.drop(columns=['TARGET']).reset_index(drop=True)
-client_data_norm = df_norm.drop(columns=['TARGET']).reset_index(drop=True)
 new_client_data = client_data.iloc[:1].copy()
 
 # Formulaire de modification
