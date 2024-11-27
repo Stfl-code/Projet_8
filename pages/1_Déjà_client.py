@@ -24,14 +24,13 @@ title_buff = 14
 #######################
 # Liens et chargement #
 #######################
-model_path = "C:\\Users\\steph\\Documents\\Formation\\Projet8\\mlflow_model\\"
-file_path = "C:\\Users\\steph\\Documents\\Formation\\Projet8\\"
+model_path = "mlflow_model"
 
 @st.cache_resource
 def load_all():
     model = mlflow.lightgbm.load_model(model_path)
-    df_brut = pd.read_csv(file_path + "Dataframe_brut.csv")
-    scaler = joblib.load(file_path + "scaler.pkl")
+    df_brut = pd.read_csv("Dataframe_brut.csv")
+    scaler = joblib.load("scaler.pkl")
     return model, df_brut, scaler
 
 model, df_brut, scaler = load_all()
