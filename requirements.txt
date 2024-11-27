@@ -8,3 +8,4 @@ lightgbm
 scikit-learn
 plotly
 joblib
+streamlit-extras
