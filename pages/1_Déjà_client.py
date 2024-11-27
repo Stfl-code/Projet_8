@@ -144,6 +144,10 @@ if sk_id_curr:
             ax.axvline(mean_value, color='green', linestyle='-', linewidth=3, label=f'Moyenne ({mean_value:.2f})')
             ax.axvline(median_value, color='orange', linestyle='dotted', linewidth=3, label=f'Médiane ({median_value:.2f})')
 
+            # Ajouter des annotations textuelles
+            ax.text(client_value, ax.get_ylim()[1] * 0.8, "Valeur client", color="blue", fontsize=font_size)
+            ax.text(mean_value, ax.get_ylim()[1] * 0.6, "Moyenne", color="green", fontsize=font_size)
+
             # Légendes et titres
             ax.set_xlabel(selected_variable, fontsize=font_size)
             ax.set_ylabel('Fréquence', fontsize=font_size)
@@ -289,6 +293,10 @@ if sk_id_curr:
             ax.axvline(client_value, color='blue', linestyle='--', linewidth=3, label=f'Client ({client_value:.2f})')
             ax.axvline(mean_value, color='green', linestyle='-', linewidth=3, label=f'Moyenne ({mean_value:.2f})')
             ax.axvline(median_value, color='orange', linestyle='dotted', linewidth=3, label=f'Médiane ({median_value:.2f})')
+
+            # Ajouter des annotations textuelles
+            ax.text(client_value, ax.get_ylim()[1] * 0.8, "Valeur client", color="blue", fontsize=font_size)
+            ax.text(mean_value, ax.get_ylim()[1] * 0.6, "Moyenne", color="green", fontsize=font_size)
 
             # Légendes et titres
             ax.set_xlabel(selected_variable_modif, fontsize=font_size)
